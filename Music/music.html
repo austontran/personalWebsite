@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Welcome</title>
+  <link rel="stylesheet" href="musicStyles.css">
+</head>
+<body class="fade-in">
+  <div class="header">
+    <b id="tester" style="font-size: 500%; color: greenyellow;">
+      Welcome Page Animation
+    </b>
+  </div>
+  <div>
+    <a href="NightOwl.html">
+      <div id="NightOwl" onmouseover="setHover('owl')" onmouseout="setHover(null)" class="artist owl">
+        <div id="OwlDimmer" class="dimmer"></div>
+        <img src="images/nightowltitle.png" width="100%">
+        <img src="images/nightowllogo.png" width="100%" >
+        
+      </div>
+    </a>
+
+    <a href="MovingMug.html">
+      <div id="MovingMugs" onmouseover="setHover('mug')" onmouseout="setHover(null)" class="artist mug">
+        <div id="MugDimmer" class="dimmer"></div>
+        <img src="images/movingmug.png" width="60%" style="margin-top: 10vh;">
+      </div>
+    </a>
+      
+
+    <a href="NightOwlXMovingMug.html">
+      <div class="X" onmouseover="setHover('x')" onmouseout="setHover(null)" id="collab" >
+        <div class="bound"></div>
+        <img src="images/X.png" width="75%">
+      </div>
+    </a>
+  </div>
+
+  <script>
+    var hovering = null;
+    var lastSelection = null;
+    var active = null;
+    var counter = 0;
+    var animationTime = 0;
+    var owlbutton = document.getElementById("NightOwl");
+    var mugbutton = document.getElementById("MovingMugs");
+    var Xbutton = document.getElementById("collab");
+
+    setInterval(update, 15);
+
+    function setHover(item){
+      hovering = item;
+    }
+
+    function update(){
+      if(animationTime == 0 && hovering != null){
+        active = hovering;
+        animationTime = 40;
+      }if(animationTime == 20 && hovering != active){
+        lastSelection = active;
+        active = null;
+      }
+
+      callItem = active;
+
+      if(active != null && counter < 20){
+        counter++;
+        animationTime = Math.max(animationTime-1, counter);
+      }
+      if(active == null && counter > 0){
+        counter--;
+        animationTime = Math.min(animationTime-1, counter);
+        
+        callItem = lastSelection;
+      }
+
+      switch(callItem){
+        case 'owl':
+          updateOwl(counter);
+          break;
+        case 'mug':
+          updateMug(counter);
+          break;
+        case 'x':
+          updateX(counter);
+          break;
+      }
+    }
+    // Store the effects off screen, when the count passed to the update is "20" then loop through each instantiated effect and place them along the bottom
+    function updateOwl(count){
+      var dimmer = document.getElementById("MugDimmer").style.background = "rgba(0, 0, 0," + counter / 25 + ")";
+      mugbutton.style.right = (0-counter) + "vw";
+      Xbutton.style.left = (35 + counter) + "vw";
+      owlbutton.style.transform = "translate("+ (counter / 2) + "vw, " + (counter/2.5)+ "vw) scale(" + (1 + (counter/50)) + ")";
+    }
+    function updateMug(count){
+      var dimmer = document.getElementById("OwlDimmer").style.background = "rgba(0, 0, 0," + counter / 25 + ")";
+      owlbutton.style.left = (0-counter) + "vw";
+      Xbutton.style.left = (35 - counter) + "vw";
+      mugbutton.style.transform = "translate("+ (-counter / 2) + "vw, " + (counter/2.5)+ "vw) scale(" + (1 + (counter/50)) + ")";
+    }
+    function updateX(Count){
+      Xbutton.style.transform = "scale(" + (1 + (counter/30)) + ")";
+      owlbutton.style.transform = "translate("+ (counter / 10) + "vw)";
+      mugbutton.style.transform = "translate("+ ((-counter) / 10) + "vw)";
+    }
+  </script>
+
+
+
+</body>
+</html>

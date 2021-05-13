@@ -1,0 +1,118 @@
+body {
+    text-align: center;
+    background: #2D3142;
+    background-image: url('background.gif');
+    background-blend-mode: darken;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+div.main {
+    padding-bottom: 1vmax;
+    text-align: center;
+    background-color:  rgba(25, 31, 36, 0.75);
+    margin-left: 5vmax;
+    margin-right: 5vmax;
+    border-radius: 25px 25px 0px 0px;
+    border-style: solid;
+  }
+div.intro {
+    padding-bottom: 0.25vmax;
+    padding-top:1%;
+    text-align: center;
+    background-color:rgba(87, 106, 121, 0.342);
+    margin-left: 5vmax;
+    margin-right: 5vmax;
+    border-radius: 0px 0px 25px 25px;
+}
+b.main {
+  font-family: Consolas, monaco, monospace;
+  font-size: 5vmax;
+  color: gainsboro;
+}
+
+p.intro {
+  font-family: Consolas, monaco, monospace;
+  font-size: 1.5vmax;
+  color: gainsboro;
+  margin-top: 0%;
+}
+
+a.button:link, a.button:visited {
+  font-family: Consolas, monaco, monospace;
+  font-size: 1.5vmax;
+  background-color:royalblue;
+  color: white;
+  padding: 1vmax 2vmax;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1vmax;
+}
+a.button:hover, a.button:active {
+    background-color: rgb(43, 71, 153);
+  }
+
+.bottomright{
+    position:fixed;
+    bottom: 8px;
+    right: 16px;
+    font-size: 1vmax;
+    color: whitesmoke;
+  }
+
+.outline {
+  -webkit-text-stroke: 0.15vmax black;
+}
+
+.fade-in {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
